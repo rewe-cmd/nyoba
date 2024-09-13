@@ -38,14 +38,14 @@ khodam = Api(name=BOT_NAME, dev=DEV_NAME, is_khodam=True)
 async def start(client, message):
     user = message.from_user
     keyboard = [
-        {"text": "developer", "url": "https://t.me/NorSodikin"},
-        {"text": "channel", "url": "https://t.me/FakeCodeX"},
-        {"text": "repository", "url": "https://github.com/SenpaiSeeker/chatbot"},
+        {"text": "developer", "url": "https://t.me/Rewetzy"},
+        {"text": "channel", "url": "https://t.me/AlwaysRtzy"},
+        {"text": "bot music", "url": "https://t.me/ReziiMusic_Bot"},
     ]
     reply_markup = Button.inline(keyboard)
 
     await message.reply_text(
-        f"**👋 Hai {User.mention(user)}! Kenalin nih, gue bot pintar berbasis Python dari mytoolsID. Gue siap bantu jawab semua pertanyaan lo.\n\nMau aktifin bot? Ketik aja /chatbot on**",
+        f"**👋 Hai {User.mention(user)}! Kenalin nih, gua bot pintar berbasis Python dari mytoolsID. Gue siap bantu jawab semua pertanyaan lu.\n\nMau aktifin bot? Ketik aja /chatbot on**",
         reply_markup=reply_markup,
     )
     get_logger(__name__).info("Mengirim pesan selamat datang")
