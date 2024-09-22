@@ -38,7 +38,7 @@ async def start(client, message):
     keyboard = [
         {"text": "developer", "url": "https://t.me/rewetzy"},
         {"text": "channel", "url": "https://t.me/alwaysrtzy"},
-        {"text": "list bot", "url": "https://t.me/alwaysrtzy/47"},
+        {"text": "list bot", "url": "https://t.me/alwaysrtzy/48"},
     ]
     reply_markup = Button().generateInlineButtonGrid(keyboard)
 
