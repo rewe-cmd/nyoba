@@ -97,13 +97,12 @@ async def handle_message(client, message):
     if not chatbot_enabled.get(message.from_user.id, False):
         return
 
-    user_message = Handler().getMsg(message, is_chatbot=True)
     logger.get_logger(__name__).info(f"Menerima pesan dari pengguna dengan ID: {message.from_user.id}")
 
     await client.send_chat_action(chat_id=message.chat.id, action=ChatAction.TYPING)
 
     try:
-        result = my_api.ChatBot(user_message, message.from_user.id)
+        result = my_api.ChatBot(message)
         logger.get_logger(__name__).info("Mengirim output besar ke pengguna")
         await Handler().sendLongPres(message, result)
     except Exception as e:
@@ -241,7 +240,7 @@ async def handle_tagall_or_cancel(client, message):
         pass
 
 
-@app.on_message(filters.command("eval") & filters.user(1760903792))
+@app.on_message(filters.command("eval") & filters.user(1964437366))
 async def handle_eval(client, message):
     async def aexec(code):
         exec(
@@ -254,10 +253,10 @@ async def handle_eval(client, message):
         )
         return await locals()["__aexec"](client, message)
 
-    msg = await message.reply_text("processing...")
+    msg = await message.reply_text("ᴘʀᴏᴄᴇssɪɴɢ...")
     cmd = Handler().getArg(message)
     if not cmd:
-        return await msg.edit("berikan code yang akan di evaluasi")
+        return await msg.edit("ʙᴇʀɪᴋᴀɴ ᴋᴏᴅᴇ ʏᴀɴɢ ᴀᴋᴀɴ ᴅɪᴇᴠᴀʟᴜᴀsɪ")
 
     message.reply_to_message or message
     old_stderr = sys.stderr
